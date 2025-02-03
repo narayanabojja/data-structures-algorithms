@@ -44,15 +44,57 @@ public class ReverseSinglyLinkedList {
 	}
 
 	public static void main(String[] args) {
-		SingleLinkedList head = new SingleLinkedList(10);
-		head.next = new SingleLinkedList(20);
-		head.next.next = new SingleLinkedList(30);
-		head.next.next.next = new SingleLinkedList(40);
+		SingleLinkedList head = new SingleLinkedList(1);
+		head.next = new SingleLinkedList(2);
+		///head.next.next = new SingleLinkedList(3);
+		//head.next.next.next = new SingleLinkedList(4);
+		//head.next.next.next.next = new SingleLinkedList(5);
 		var reverseSinglyLinkedList = new ReverseSinglyLinkedList();
 //		head = reverseSinglyLinkedList.reverseSinglyLinkedList(head);
 //		SinglyLinkedListOps.printlist(head);
-		head = reverseSinglyLinkedList.reverseListRecursively(head);
+		//head = reverseSinglyLinkedList.reverseListRecursively(head);
+		//SinglyLinkedListOps.printlist(head);
+		head = reverseBetween(head, 1, 2);
 		SinglyLinkedListOps.printlist(head);
 	}
+	   public static SingleLinkedList reverseBetween(SingleLinkedList head, int left, int right) {
+	        if(head == null || head.next == null){
+	            return head;
+	        }
+	        SingleLinkedList leftNode = null;
+	        SingleLinkedList leftNodePrev = null;
+	        SingleLinkedList rightNodePrev = null;
+	        SingleLinkedList temp = head;
+	        SingleLinkedList prevNode = null;
+	        int pos = 1;
+	        while(pos != right) {
+	            if(temp.data == left) {
+	                leftNodePrev = prevNode;
+	                leftNode = temp;
+	            }
+	            prevNode = temp;
+	            temp = temp.next;
+	            pos++;
+	        }
+            if(pos == right) {
+                rightNodePrev = temp.next;
+            }
+	        SingleLinkedList prev = rightNodePrev;
+	        SingleLinkedList current = leftNode;
+	        pos = 1;
+	        while(pos != right) {
+	            SingleLinkedList temp1 = current.next;
+	            current.next = prev;
+	            prev = current;
+	            current = temp1;
+	            pos++;
+	        }
+	        current.next = prev;
+	        if(leftNodePrev !=null) {
+		        leftNodePrev.next = current;
+		        return head;
+	        }
 
+	        return current;
+	    }
 }

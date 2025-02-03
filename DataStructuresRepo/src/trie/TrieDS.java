@@ -4,7 +4,7 @@ package trie;
  * time complexities:
  * 
  * Insert, Search, StartsWith:O(m) where m is the length of the word.
- * 
+ * https://takeuforward.org/data-structure/implement-trie-1/
  */
 class Trie {
 	private TrieNode root;

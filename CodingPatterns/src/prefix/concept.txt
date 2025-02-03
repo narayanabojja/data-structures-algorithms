@@ -1,0 +1,12 @@
+The "prefix sum" coding pattern is a technique in computer science where you pre-calculate 
+the cumulative sum of elements in an array up to each index, allowing for quick calculation 
+of the sum of any subarray within that array by simply subtracting the corresponding prefix sum 
+values; essentially, it's a way to optimize repeated subarray sum calculations by doing 
+the heavy lifting upfront.
+
+https://takeuforward.org/data-structure/prefix-sum-technique/
+
+https://www.youtube.com/watch?v=yuws7YK0Yng
+
+time complexity: o(n)
+space complexity: o(n)
