@@ -38,5 +38,8 @@ public class SortZerosOnes {
 
 			}
 		}
+		for (int i : arr) {
+			System.out.print(i+" ");
+		}
 	}
 }

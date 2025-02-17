@@ -1,0 +1,14 @@
+
+As the name suggests, a two-pointer approach uses two-pointers to find the answer to a problem in the optimal time. When the given data is present in a linear form i.e. in terms of an array, vector, linked list, etc we can use this approach.
+
+This approach is very useful when you want to reduce the space complexity to constant but the state of time complexity still remains arbitrary i.e. it would reduce to a large extent or to a small extent.
+
+An extra data structure can solve some problems with better time complexity but space complexity is increased which is a problem that could be addressed using this approach.
+
+
+https://takeuforward.org/data-structure/what-is-two-pointer-approach/
+
+https://www.youtube.com/watch?v=QzZ7nmouLTI
+
+time complexity: o(n)
+space complexity: o(1)

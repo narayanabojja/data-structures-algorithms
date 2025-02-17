@@ -17,5 +17,5 @@ public class ReverseString {
 		String reverseWord = String.valueOf(charArray);
 		System.out.println(reverseWord);
 	}
-
+	
 }

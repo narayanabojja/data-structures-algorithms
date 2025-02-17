@@ -1,5 +1,11 @@
 package string;
 
+/**
+ * Given an input string s, reverse the order of the words.
+ * 
+ * https://leetcode.com/problems/reverse-words-in-a-string/description/
+ * 
+ */
 public class ReverseWords {
 
 	public static void main(String[] args) {
