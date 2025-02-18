@@ -9,8 +9,8 @@ import java.util.Map;
  * 
  * All occurrences of a character must be replaced with another character while
  * preserving the order of characters. No two characters may map to the same
- * character, but a character may map to itself.
- * Time Complexity:  O(n)  space complexity:  O(1) 
+ * character, but a character may map to itself. Time Complexity: O(n) space
+ * complexity: O(1)
  */
 public class Isomorphic {
 
@@ -36,6 +36,25 @@ public class Isomorphic {
 			sMap.put(s.charAt(i), i + 1);
 			tMap.put(t.charAt(i), i + 1);
 		}
+		return true;
+	}
+
+	public boolean isomorphicString(String s, String t) {
+		// Arrays to store the last seen positions of characters in s and t
+		int[] freqS = new int[256];
+		int[] freqT = new int[256];
+		// Iterate through each character in the strings
+		for (int i = 0; i < s.length(); i++) {
+			// If the last seen positions of the current characters don't match, return
+			// false
+			if (freqS[s.charAt(i)] != freqT[t.charAt(i)]) {
+				return false;
+			}
+			// Update the last seen positions
+			freqS[s.charAt(i)] = i + 1;
+			freqT[t.charAt(i)] = i + 1;
+		}
+		// If all characters match, return true
 		return true;
 	}
 }
