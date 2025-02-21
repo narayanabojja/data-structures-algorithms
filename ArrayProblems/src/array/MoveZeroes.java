@@ -20,13 +20,16 @@ public class MoveZeroes {
 		if (nums.length == 0) {
 			return;
 		}
+		// Initialize nonZeroIndex to 0
 		int nonZeroIndex = 0;
+		//Move all non zero elements to front
 		for (int i = 0; i < nums.length; i++) {
 			if (nums[i] != 0) {
 				nums[nonZeroIndex] = nums[i];
 				nonZeroIndex++;
 			}
 		}
+		// Fill remaining elements with zero
 		while (nonZeroIndex < nums.length) {
 			nums[nonZeroIndex] = 0;
 			nonZeroIndex++;

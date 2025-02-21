@@ -15,11 +15,21 @@ public class SecondLargest {
 	}
 
 	static int print2largest(int arr[]) {
+		// Check if the array has less than 2 elements
 		if (arr == null || arr.length < 2) {
+			/*
+			 * If true, return -1 indicating there is no second largest element
+			 */
 			return -1;
 		}
+		/*
+		 * Initialize variables to store the largest and second largest elements
+		 */
 		int largest = Integer.MIN_VALUE;
 		int secondLargest = Integer.MIN_VALUE;
+		/*
+		 * Single traversal to find the largest and second largest elements
+		 */
 		for (int i : arr) {
 			if (i > largest) {
 				secondLargest = largest;
@@ -28,6 +38,7 @@ public class SecondLargest {
 				secondLargest = i;
 			}
 		}
+		// Return the second largest element
 		if (secondLargest == Integer.MIN_VALUE) {
 			return -1;
 		}
