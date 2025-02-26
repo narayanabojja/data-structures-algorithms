@@ -10,7 +10,9 @@ import java.util.Set;
  * 
  * Check if current number is a start number of consecutive sequence
  * https://leetcode.com/problems/longest-consecutive-sequence/solutions/6398280/video-check-n-1/
- * Time complexity: O(n) Space complexity: O(n)
+ * Time Complexity:O(n) on average, but can degrade to O(n^2) in worst case due
+ * to the while loop. Space Complexity:O(n) due to the HashSet storing elements
+ * of the input array.
  */
 public class LongestConsecutive {
 

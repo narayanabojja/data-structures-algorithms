@@ -7,8 +7,14 @@ import java.util.HashMap;
  * nums of size n, return the majority element.
  * 
  * The majority element is the element that appears more than ⌊n / 2⌋ times. You
- * may assume that the majority element always exists in the array.
- * 
+ * may assume that the majority element always exists in the array. Time
+ * Complexity:O(n) because the code iterates through the input array 'nums'
+ * twice, once to find the potential majority element and again to verify its
+ * count. Each iteration takes O(n) time, so the overall time complexity is O(n)
+ * + O(n) which simplifies to O(n). Space Complexity:O(1) as the code uses a
+ * constant amount of extra space, regardless of the input size. It only uses a
+ * few integer variables (n, count, el, count1), whose memory consumption does
+ * not depend on the size of the input array.
  */
 public class MajorityElement {
 

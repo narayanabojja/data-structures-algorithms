@@ -11,7 +11,12 @@ import java.util.List;
  * above it as shown:
  * 
  * The problem requires us to generate Pascal’s Triangle up to a given number of
- * rows. Pascal’s Triangle follows a specific pattern:
+ * rows. Pascal’s Triangle follows a specific pattern: Time Complexity:The time
+ * complexity is O(numRows^2) due to the nested loop structure where the outer
+ * loop iterates 'numRows' times and the inner loop's iterations depend on the
+ * row number, summing up to a quadratic relationship. Space Complexity:The
+ * space complexity is O(numRows^2) because the space required to store the
+ * Pascal's triangle grows quadratically with the number of rows.
  * 
  */
 public class PascalsTriangle {

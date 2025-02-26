@@ -18,6 +18,7 @@ public class LongestSubarraySumK {
 
 	// Function to find the length of the longest subarray having sum k
 	static int lenOfLongSubarr(int[] arr, int k) {
+		
 		HashMap<Integer, Integer> mp = new HashMap<>();
 		int res = 0, prefixSum = 0;
 

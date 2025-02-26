@@ -20,7 +20,7 @@ public class SpiralOrder {
 	}
 
 	public static List<Integer> spiralOrder(int[][] matrix) {
-		
+
 		List<Integer> ans = new ArrayList<>();
 
 		// Number of rows
@@ -30,8 +30,10 @@ public class SpiralOrder {
 		int m = matrix[0].length;
 
 		// Initialize pointers for traversal
-		int top = 0, left = 0;
-		int bottom = n - 1, right = m - 1;
+		int top = 0;
+		int left = 0;
+		int bottom = n - 1;
+		int right = m - 1;
 
 		// Traverse the matrix in spiral order
 		while (top <= bottom && left <= right) {

@@ -5,11 +5,15 @@ package binarysearch;
  * unknown pivot index k Given the array nums after the possible rotation and an
  * integer target, return the index of target if it is in nums, or -1 if it is
  * not in nums
+ * 
+ * Time Complexity:O(log n) because the search space is halved in each
+ * iteration. Space Complexity:O(1) because only a constant amount of extra
+ * space is used.
  */
 public class SearchRotatedSortedArray {
 
 	public static void main(String[] args) {
-		int[] nums = { 5, 6 ,1, 2, 3, 4 };
+		int[] nums = { 5, 6, 1, 2, 3, 4 };
 		System.out.println(search(nums, 4));
 	}
 
