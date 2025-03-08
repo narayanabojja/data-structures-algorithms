@@ -39,6 +39,23 @@ public class Isomorphic {
 		return true;
 	}
 
+	/**
+	 * Initialize two arrays of size 256 (to cover all ASCII characters) to store
+	 * the last seen positions of characters in both strings. This helps in tracking
+	 * the mapping between characters. Iterate through each character in the strings
+	 * simultaneously. For each character, compare the last seen positions stored in
+	 * the arrays. If the positions do not match, it indicates an inconsistent
+	 * mapping, and the strings are not isomorphic. If the positions match, update
+	 * the arrays with the current index (incremented by 1 to avoid the default
+	 * value of 0). This ensures that the mapping is consistent throughout the
+	 * strings. After completing the iteration, if no inconsistencies in the
+	 * mappings are found, the strings are confirmed to be isomorphic. If any
+	 * inconsistency is found during the iteration, return false immediately.
+	 * 
+	 * @param s
+	 * @param t
+	 * @return
+	 */
 	public boolean isomorphicString(String s, String t) {
 		// Arrays to store the last seen positions of characters in s and t
 		int[] freqS = new int[256];

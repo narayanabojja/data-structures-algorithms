@@ -43,6 +43,15 @@ public class AnagramChecker {
 		return true;
 	}
 
+	/**
+	 * Time Complexity: O(N), where N is the length of the string
+	 * 
+	 * Space Complexity: O(1) as no additional data structures are used
+	 * 
+	 * @param s
+	 * @param t
+	 * @return
+	 */
 	public boolean anagramStrings(String s, String t) {
 		// Edge Cases
 		if (s.length() != t.length())

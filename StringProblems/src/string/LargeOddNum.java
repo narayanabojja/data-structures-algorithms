@@ -15,17 +15,21 @@ package string;
 public class LargeOddNum {
 
 	public static void main(String[] args) {
-		String s = "5347";
+		String s = "35427";
 		int index = -1;
+		// Iterate through the string from the end to beginning
 		for (int i = s.length() - 1; i >= 0; i--) {
+			// Break if an odd digit is found
 			if ((s.charAt(i) - '0') % 2 == 1) {
 				index = i;
 				break;
 			}
 		}
+		// If no odd number was found, return an empty string
 		if (index == -1) {
 			System.out.println("");
 		}
+		// Skipping any leading zeroes
 		int i = 0;
 		while (i < index) {
 			if (s.charAt(i) - '0' != 0) {
@@ -33,6 +37,7 @@ public class LargeOddNum {
 			}
 			i++;
 		}
+		// Return the largest odd number substring
 		System.out.println(s.substring(i, index + 1));
 	}
 

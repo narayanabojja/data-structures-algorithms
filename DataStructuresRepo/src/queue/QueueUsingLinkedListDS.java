@@ -1,5 +1,10 @@
 package queue;
 
+/**
+ * Time Complexity:The time complexity for push, pop, peek and isEmpty is O(1).
+ * Space Complexity:The space complexity is O(1) as the algorithm uses a
+ * constant amount of extra space.
+ */
 class QNode {
 	int data;
 	QNode next;
@@ -10,7 +15,7 @@ class QNode {
 }
 
 public class QueueUsingLinkedListDS {
- 
+
 	QNode front;
 	QNode rear;
 
@@ -35,10 +40,12 @@ public class QueueUsingLinkedListDS {
 			rear = null;
 		}
 	}
+
 	public int peek() {
 		return front == null ? -1 : front.data;
-		
+
 	}
+
 	public static void main(String[] args) {
 		QueueUsingLinkedListDS queue = new QueueUsingLinkedListDS();
 		queue.enqueue(10);

@@ -22,6 +22,19 @@ public class LongestCommonPrefix {
 		System.out.println(lc.longestCommonPrefix(str));
 	}
 
+	/**
+	 * To determine the longest common prefix among a set of strings, consider the
+	 * following approach: when a list of strings is sorted lexicographically, the
+	 * first string and the last string in this sorted list will have the longest
+	 * common prefix. This is because, in a sorted list, the closest strings in
+	 * terms of lexicographical order are adjacent, making their common prefix the
+	 * longest possible for the entire list. For example, if the sorted list is
+	 * ["apple", "applet", "banana"], comparing the first and last string in the
+	 * sorted order gives the common prefix shared by all strings in the list.
+	 * 
+	 * @param v
+	 * @return
+	 */
 	public String longestCommonPrefix(String[] v) {
 		// Use StringBuilder to build the result
 		StringBuilder ans = new StringBuilder();

@@ -3,101 +3,92 @@ package stack;
 import java.util.Stack;
 
 /**
- * MinStack class implements a stack with an additional feature to retrieve the
- * minimum element in constant time. It uses a secondary stack to maintain the
- * minimum values alongside the main stack.
- * 
- * Methods: - `push(int x)`: Pushes an element onto the stack and updates the
- * minimum value. - `pop()`: Removes the top element from the stack and adjusts
- * the minimum value if necessary. - `top()`: Retrieves the top element of the
- * stack without removing it. - `getMin()`: Retrieves the minimum element in the
- * stack in O(1) time.
+ * Design a stack that supports the following operations in constant time: push,
+ * pop, top, and retrieving the minimum element.
  */
-public class MinStack {
+//Class to implement Minimum Stack
+class MinStack {
+	private Stack<Integer> st;
+	private int mini;
 
-	// Tracks the minimum value in the stack
-	private int min = Integer.MAX_VALUE;
-
-	// Stack to store the elements
-	private Stack<Integer> stack = new Stack<>();
-
-	/**
-	 * Constructor to initialize the MinStack object.
-	 */
+	// Empty Constructor
 	public MinStack() {
-		// Default constructor
+		st = new Stack<>();
 	}
 
-	/**
-	 * Pushes an element onto the stack. If the element is less than or equal to the
-	 * current minimum, the current minimum is pushed onto the stack before updating
-	 * the minimum.
-	 * 
-	 * @param x The element to push onto the stack.
-	 * 
-	 *          Time Complexity: O(1) - Each push operation is constant time. Space
-	 *          Complexity: O(1) - Uses constant additional space per element.
-	 */
-	public void push(int x) {
-		if (x <= min) {
-			stack.push(min); // Push the current min onto the stack
-			min = x; // Update the minimum
+	// Method to push a value in stack
+	public void push(int value) {
+		// If stack is empty
+		if (st.isEmpty()) {
+			// Update the minimum value
+			mini = value;
+
+			// Push current value as minimum
+			st.push(value);
 			return;
 		}
-		stack.push(x); // Push the element
-	}
 
-	/**
-	 * Removes the top element from the stack. If the popped element is the current
-	 * minimum, the next element is used to update the minimum.
-	 * 
-	 * Time Complexity: O(1) - Each pop operation is constant time. Space
-	 * Complexity: O(1) - No additional space is used during pop.
-	 */
-	public void pop() {
-		if (stack.pop() == min) { // If the popped element is the min
-			min = stack.pop(); // Pop the old min from the stack
+		// If the value is greater than the minimum
+		if (value > mini) {
+			st.push(value);
+		} else {
+			// Add the modified value to stack
+			st.push(2 * value - mini);
+			// Update the minimum
+			mini = value;
 		}
 	}
 
-	/**
-	 * Retrieves the top element of the stack without removing it.
-	 * 
-	 * @return The top element of the stack.
-	 * 
-	 *         Time Complexity: O(1) - Retrieving the top element is constant time.
-	 *         Space Complexity: O(1) - No additional space is used.
-	 */
+	// Method to pop a value from stack
+	public void pop() {
+		// Base case
+		if (st.isEmpty())
+			return;
+
+		// Get the top
+		int x = st.pop();
+
+		// If the modified value was added to stack
+		if (x < mini) {
+			// Update the minimum
+			mini = 2 * mini - x;
+		}
+	}
+
+	// Method to get the top of stack
 	public int top() {
-		return stack.peek();
+		// Base case
+		if (st.isEmpty())
+			return -1;
+
+		// Get the top
+		int x = st.peek();
+
+		// Return top if minimum is less than the top
+		if (mini < x)
+			return x;
+
+		// Otherwise return mini
+		return mini;
 	}
 
-	/**
-	 * Retrieves the minimum element in the stack.
-	 * 
-	 * @return The minimum element in the stack.
-	 * 
-	 *         Time Complexity: O(1) - Retrieving the minimum is constant time.
-	 *         Space Complexity: O(1) - No additional space is used.
-	 */
+	// Method to get the minimum in stack
 	public int getMin() {
-		return min;
+		// Return the minimum
+		return mini;
 	}
 
-	/**
-	 * Main method to demonstrate the functionality of MinStack.
-	 * 
-	 * @param args Command-line arguments (not used).
-	 */
 	public static void main(String[] args) {
 		MinStack s = new MinStack();
-		s.push(-1);
-		s.push(10);
-		s.push(-4);
+
+		// Function calls
+		s.push(-2);
 		s.push(0);
-		System.out.println(s.getMin()); // Output: -4
+		s.push(-3);
+		System.out.print(s.getMin() + " ");
 		s.pop();
+		System.out.print(s.top() + " ");
 		s.pop();
-		System.out.println(s.getMin()); // Output: -4
+		System.out.print(s.getMin());
 	}
 }

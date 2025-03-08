@@ -12,6 +12,7 @@ public class QueueUsingSingleStack {
 
 	// Dequeue operation. TC: O(n)
 	public int dequeue() throws Exception {
+		
 		if (stack.isEmpty()) {
 			throw new Exception("Queue is empty");
 		}
@@ -71,13 +72,13 @@ public class QueueUsingSingleStack {
 			queue.enqueue(3);
 
 			System.out.println("Front element: " + queue.peek()); // Output: 1
-			System.out.println(queue.dequeue()); // Output: 1
+			System.out.println("dequeue: " + queue.dequeue()); // Output: 1
 			System.out.println("Front element: " + queue.peek()); // Output: 2
 			System.out.println(queue.dequeue()); // Output: 2
 			System.out.println("Is queue empty? " + queue.isEmpty()); // Output: false
 			queue.enqueue(4);
-			System.out.println(queue.dequeue()); // Output: 3
-			System.out.println(queue.dequeue()); // Output: 4
+			System.out.println("dequeue: " + queue.dequeue()); // Output: 3
+			System.out.println("dequeue: " + queue.dequeue()); // Output: 4
 			System.out.println("Is queue empty? " + queue.isEmpty()); // Output: true
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
