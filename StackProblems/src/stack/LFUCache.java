@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Internal class representing a cache node.
  */
-class Node {
+class NodeLFU {
 	int key, value, freq;
 
 	/**
@@ -14,7 +14,7 @@ class Node {
 	 * @param key   The key of the node.
 	 * @param value The value of the node.
 	 */
-	Node(int key, int value) {
+	NodeLFU(int key, int value) {
 		this.key = key;
 		this.value = value;
 		this.freq = 1;
@@ -25,8 +25,8 @@ class LFUCache {
 
 	private final int capacity;
 	private int minFreq;
-	private final Map<Integer, Node> cache;
-	private final Map<Integer, LinkedHashSet<Node>> freqMap;
+	private final Map<Integer, NodeLFU> cache;
+	private final Map<Integer, LinkedHashSet<NodeLFU>> freqMap;
 
 	/**
 	 * Initializes the LFU Cache with a given capacity.
@@ -50,7 +50,7 @@ class LFUCache {
 	public int get(int key) {
 		if (!cache.containsKey(key))
 			return -1;
-		Node node = cache.get(key);
+		NodeLFU node = cache.get(key);
 		updateFrequency(node); // Increase frequency count
 		return node.value;
 	}
@@ -68,14 +68,14 @@ class LFUCache {
 			return;
 
 		if (cache.containsKey(key)) {
-			Node node = cache.get(key);
+			NodeLFU node = cache.get(key);
 			node.value = value; // Update value
 			updateFrequency(node); // Increase frequency count
 		} else {
 			if (cache.size() >= capacity) {
 				evictLFU(); // Remove least frequently used node
 			}
-			Node newNode = new Node(key, value);
+			NodeLFU newNode = new NodeLFU(key, value);
 			cache.put(key, newNode);
 			minFreq = 1; // Reset min frequency to 1 for the new node
 			freqMap.computeIfAbsent(1, k -> new LinkedHashSet<>()).add(newNode);
@@ -88,7 +88,7 @@ class LFUCache {
 	 * 
 	 * @param node The node to update.
 	 */
-	private void updateFrequency(Node node) {
+	private void updateFrequency(NodeLFU node) {
 		int freq = node.freq;
 		freqMap.get(freq).remove(node); // Remove node from current frequency list
 		if (freqMap.get(freq).isEmpty() && freq == minFreq) {
@@ -104,7 +104,7 @@ class LFUCache {
 	 */
 	private void evictLFU() {
 		if (freqMap.containsKey(minFreq) && !freqMap.get(minFreq).isEmpty()) {
-			Node nodeToRemove = freqMap.get(minFreq).iterator().next(); // Get the oldest node
+			NodeLFU nodeToRemove = freqMap.get(minFreq).iterator().next(); // Get the oldest node
 			freqMap.get(minFreq).remove(nodeToRemove);
 			cache.remove(nodeToRemove.key); // Remove node from cache
 		}
