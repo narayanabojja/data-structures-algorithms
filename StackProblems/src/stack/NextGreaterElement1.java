@@ -1,5 +1,6 @@
 package stack;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -20,7 +21,12 @@ public class NextGreaterElement1 {
 
 	public static void main(String[] args) {
 		int[] nums = { 6, 8, 0, 1, 3 };
-		int[] ans = nextLargerElement(nums);//8 -1 1 3 6 
+		int[] ans = nextLargerElement(nums);// 8 -1 1 3 6
+		for (int i : ans) {
+			System.out.print(i + " ");
+		}
+		ans = nextLargerElementBruteForce(nums);
+		System.out.println("\nBruteForce output: ");
 		for (int i : ans) {
 			System.out.print(i + " ");
 		}
@@ -70,6 +76,49 @@ public class NextGreaterElement1 {
 		}
 
 		// Return the result
+		return ans;
+	}
+
+	/**
+	 * Time Complexity: O(N2) (where N is the size of given array) Using two nested
+	 * for loops to find the next greater elements.
+	 * 
+	 * Space Complexity: O(N) The space required to store the answer is O(N).
+	 * 
+	 * @param arr
+	 * @return
+	 */
+	public static int[] nextLargerElementBruteForce(int[] arr) {
+
+		int n = arr.length; // size of array
+
+		// To store the next greater elements
+		int[] ans = new int[n];
+		Arrays.fill(ans, -1);
+
+		for (int i = 0; i < n; i++) {
+
+			// Get the current element
+			int currEle = arr[i];
+
+			/*
+			 * Nested loop to get the next greater element
+			 */
+			for (int j = i + 1; j < n; j++) {
+
+				// If the next greater element is found
+				if (arr[j] > currEle) {
+
+					// Store the next greater element
+					ans[i] = arr[j];
+
+					// Break from the loop
+					break;
+				}
+			}
+		}
+
+		// Return the answer
 		return ans;
 	}
 

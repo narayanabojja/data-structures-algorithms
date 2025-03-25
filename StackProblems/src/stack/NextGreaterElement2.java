@@ -1,5 +1,6 @@
 package stack;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -76,4 +77,55 @@ public class NextGreaterElement2 {
 		// Return the result
 		return ans;
 	}
+
+	/*
+	 * Function to find the next greater element for each element in the circular
+	 * array
+	 */
+	/**
+	 * Complexity Analysis: Time Complexity: O(N2) (where N is the size of given
+	 * array) Using two nested for loops to find the next greater elements.
+	 * 
+	 * Space Complexity: O(N) The space required to store the answer is O(N).
+	 * 
+	 * @param arr
+	 * @return
+	 */
+	public int[] nextGreaterElementsBruteForce(int[] arr) {
+
+		int n = arr.length; // size of array
+
+		// To store the next greater elements
+		int[] ans = new int[n];
+		Arrays.fill(ans, -1);
+
+		for (int i = 0; i < n; i++) {
+
+			// Get the current element
+			int currEle = arr[i];
+
+			/*
+			 * Nested loop to get the next greater element
+			 */
+			for (int j = 1; j < n; j++) {
+
+				// Getting the hypothetical index
+				int ind = (j + i) % n;
+
+				// If the next greater element is found
+				if (arr[ind] > currEle) {
+
+					// Store the next greater element
+					ans[i] = arr[ind];
+
+					// Break from the loop
+					break;
+				}
+			}
+		}
+
+		// Return the answer
+		return ans;
+	}
+
 }

@@ -17,7 +17,7 @@ import java.util.Stack;
  * Calculating the sum of subarray maximums requires O(N) space. Calculating the
  * sum of subarray minimums requires O(N) space.
  */
-public class SubArrayRanges {
+public class SubArrayRangesAndNGENSEPSEPGE {
 
 	/*
 	 * Function to find the indices of next smaller elements
@@ -264,7 +264,14 @@ public class SubArrayRanges {
 	}
 
 	/*
-	 * Function to find the sum of subarray ranges in each subarray
+	 * Function to find the sum of subarray ranges in each subarray Hence, instead
+	 * of summing up the ranges for each subarray, the sum of largest elements in
+	 * each subarray and sum of smallest elements in each subarray can be added to
+	 * get the required sum of subarray ranges.
+	 * 
+	 * To optimally find the sum of largest and the smallest elements in the array,
+	 * the concept of Next/Previous Smaller/Greater Elements come into picture as
+	 * discussed in the Sum of Subarray minimums (Optimal Solution).
 	 */
 	public long subArrayRanges(int[] arr) {
 
@@ -278,7 +285,7 @@ public class SubArrayRanges {
 		/*
 		 * Creating an instance of Solution class
 		 */
-		SubArrayRanges sol = new SubArrayRanges();
+		SubArrayRangesAndNGENSEPSEPGE sol = new SubArrayRangesAndNGENSEPSEPGE();
 
 		/*
 		 * Function call to find the sum of subarray ranges in each subarray
@@ -286,5 +293,60 @@ public class SubArrayRanges {
 		long ans = sol.subArrayRanges(arr);
 
 		System.out.println("The sum of subarray ranges is: " + ans);
+		ans = sol.subArrayRangesBruteForce(arr);
+
+		System.out.println("The sum of subarray ranges is: " + ans);
+	}
+
+	/**
+	 * The brute force way to solve this problem is by generating all the subarrays
+	 * and finding the minimum and maximum values in all of them. The range of a
+	 * subarray can be found as the difference between the maximum and minimum value
+	 * which can be summed up for all the subarrays to get the result.
+	 * 
+	 * 
+	 * Time Complexity: O(N2) (where N is the size of the array) Using two nested
+	 * loops.
+	 * 
+	 * Space Complexity: O(1) Using only a couple of variables.
+	 * 
+	 * @param arr
+	 * @return
+	 */
+	public long subArrayRangesBruteForce(int[] arr) {
+
+		// Size of array
+		int n = arr.length;
+
+		// To store the sum
+		long sum = 0;
+
+		// Traverse on the array
+		for (int i = 0; i < n; i++) {
+
+			// To store the smallest value of subarray
+			int smallest = arr[i];
+
+			// To store the largest value of subarray
+			int largest = arr[i];
+
+			/*
+			 * Nested loop to get all subarrays starting from index i
+			 */
+			for (int j = i; j < n; j++) {
+
+				// Update the smallest value
+				smallest = Math.min(smallest, arr[j]);
+
+				// Update the largest value
+				largest = Math.max(largest, arr[j]);
+
+				// Update the sum
+				sum += (largest - smallest);
+			}
+		}
+
+		// Return the computed sum
+		return sum;
 	}
 }

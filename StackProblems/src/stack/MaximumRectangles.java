@@ -14,7 +14,7 @@ import java.util.Stack;
  * The prefix sum array takes up O(N*M) space. Finding the largest rectangle in
  * each histogram (of length M) takes O(M) space due to stack.
  */
-public class MaximalAreaOfSubMatrixOfAll1 {
+public class MaximumRectangles {
 
 	// Function to find the largest rectangle area
 	private int largestRectangleArea(int[] heights) {
@@ -101,7 +101,7 @@ public class MaximalAreaOfSubMatrixOfAll1 {
 		int m = matrix[0].length;
 
 		/*
-		 * Prefix sum matric to store heights for different ground levels
+		 * Prefix sum matrix to store heights for different ground levels
 		 */
 		int[][] prefixSum = new int[n][m];
 
@@ -146,7 +146,7 @@ public class MaximalAreaOfSubMatrixOfAll1 {
 		/*
 		 * Creating an instance of Solution class
 		 */
-		MaximalAreaOfSubMatrixOfAll1 sol = new MaximalAreaOfSubMatrixOfAll1();
+		MaximumRectangles sol = new MaximumRectangles();
 
 		/*
 		 * Function call to find the largest rectangle area containing all 1s

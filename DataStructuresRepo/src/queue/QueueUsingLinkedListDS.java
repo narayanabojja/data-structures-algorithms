@@ -46,6 +46,10 @@ public class QueueUsingLinkedListDS {
 
 	}
 
+	public boolean isEmpty() {
+		return front == null && rear == null;
+	}
+
 	public static void main(String[] args) {
 		QueueUsingLinkedListDS queue = new QueueUsingLinkedListDS();
 		queue.enqueue(10);
@@ -56,6 +60,7 @@ public class QueueUsingLinkedListDS {
 		System.out.println("Front: " + queue.front.data);
 		System.out.println("Rear: " + queue.rear.data);
 		System.out.println("peek: " + queue.peek());
+		System.out.println("isEmpty: " + queue.isEmpty());
 	}
 
 }

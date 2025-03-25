@@ -1,6 +1,7 @@
 package tree;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 class BinaryTreeNode {
@@ -34,6 +35,15 @@ public class BinaryTree {
 		System.out.print(root.key + " ");
 	}
 
+	/**
+	 * Time Complexity O(N) where n is the number of nodes in the tree due to
+	 * traversal of each node once
+	 * 
+	 * SpaceComplexity O(h) where h is the height of the tree for the recursion
+	 * stack, plus O(n) for the output array
+	 * 
+	 * @param root
+	 */
 	public void inOrder(BinaryTreeNode root) {
 		if (root == null) {
 			return;
@@ -61,6 +71,32 @@ public class BinaryTree {
 				queue.add(temp.right);
 			}
 		}
+	}
+
+	public List<List<Integer>> levelOrderIntoList(BinaryTreeNode root) {
+		List<List<Integer>> result = new LinkedList<>();
+		if (root == null) {
+			return result;
+		}
+		Queue<BinaryTreeNode> q = new LinkedList<>();
+		q.add(root);
+		while (!q.isEmpty()) {
+			List<Integer> list = new LinkedList<>();
+			int size = q.size();
+			for (int i = 0; i < size; i++) {
+				BinaryTreeNode node = q.poll();
+				if (node.left != null) {
+					q.add(node.left);
+				}
+				if (node.right != null) {
+					q.add(node.right);
+				}
+				list.add(node.key);
+			}
+
+			result.add(list);
+		}
+		return result;
 	}
 
 	void insert(int key) {

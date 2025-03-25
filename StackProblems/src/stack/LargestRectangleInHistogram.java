@@ -27,6 +27,11 @@ public class LargestRectangleInHistogram {
 	}
 
 	/**
+	 * In the earlier solution, precomputing the PSE and NSE arrays was contributing
+	 * to multiple traversals. This can be avoiding by finding the PSE on the go.
+	 * But the question of finding the NSE still remains.
+	 * 
+	 * 
 	 * Time Complexity: O(N) (where N is the size of the given array)
 	 * 
 	 * Traversing all the elements of array takes O(N) time. All the elements are
@@ -38,6 +43,7 @@ public class LargestRectangleInHistogram {
 	 * @return
 	 */
 	public int largestRectangleAreaOptimal(int[] heights) {
+		
 		int n = heights.length; // Size of array
 
 		// Stack
@@ -134,7 +140,7 @@ public class LargestRectangleInHistogram {
 			 * Pop the elements in the stack until the stack is not empty and the top
 			 * element is not the smaller element
 			 */
-			while (!st.isEmpty() && arr[st.peek()] >= arr[i]) {
+			while (!st.isEmpty() && arr[st.peek()] >= currEle) {
 				st.pop();
 			}
 
@@ -194,6 +200,21 @@ public class LargestRectangleInHistogram {
 	}
 
 	/**
+	 * To find the area of a rectangle, its height and width must be known. Already
+	 * given the heights in the question, the only task remaining is to find the
+	 * width of the rectangle.
+	 * 
+	 * The width of a rectangle of current height will depend on the number of
+	 * rectangles on the left and right having a height greater than or equal to
+	 * current height. Hence, the width of the rectangle can be found using the
+	 * concept of Previous/Next Smaller Elements. The formula for the same is: width
+	 * = pse[ind] - nse[ind] - 1 where, pse[ind] and nse[ind] represent the indices
+	 * of previous and next smaller element for current index.
+	 * 
+	 * Thus the indices of previous and next smaller elements can be precomputed.
+	 * This will help in finding the area of individual rectangles possible, out of
+	 * which the maximum can be returned as the answer.
+	 * 
 	 * Time Complexity: O(N) (where N is the size of the given array)
 	 * 
 	 * Precomputing PSE and NSE arrays take O(2N) time each. Traversing on the given

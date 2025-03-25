@@ -36,6 +36,45 @@ public class SumSubarrayMins {
 	}
 
 	/*
+	 * Function to find the sum of the minimum value in each subarray Time
+	 * Complexity: O(N2) Using two nested loops.
+	 * 
+	 * Space Complexity: O(1) Using only a couple of variables.
+	 */
+	public int sumSubarrayMinsBruteForce(int[] arr) {
+
+		// Size of array
+		int n = arr.length;
+
+		int mod = (int) 1e9 + 7; // Mod value
+
+		// To store the sum
+		int sum = 0;
+
+		// Traverse on the array
+		for (int i = 0; i < n; i++) {
+
+			// To store the minimum of subarray
+			int mini = arr[i];
+
+			/*
+			 * Nested loop to get all subarrays starting from index i
+			 */
+			for (int j = i; j < n; j++) {
+
+				// Update the minimum value
+				mini = Math.min(mini, arr[j]);
+
+				// Update the sum
+				sum = (sum + mini) % mod;
+			}
+		}
+
+		// Return the computed sum
+		return sum;
+	}
+
+	/*
 	 * Function to find the indices of next smaller elements
 	 */
 	private int[] findNSE(int[] arr) {

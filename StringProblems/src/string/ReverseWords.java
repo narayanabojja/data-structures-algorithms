@@ -14,7 +14,10 @@ public class ReverseWords {
 	}
 
 	/**
-	 * Time Complexity: O(n) Space Complexity: O(n)
+	 * Time Complexity:O(n) due to splitting the string and iterating through the
+	 * words array to reverse the order. Space Complexity:O(n) because the space
+	 * used by the words array and StringBuilder scales linearly with the input
+	 * string length.
 	 */
 	public static String reverseWords(String s) {
 		s = s.trim();
@@ -26,6 +29,6 @@ public class ReverseWords {
 				sb.append(" ");
 			}
 		}
-		return sb. toString();
+		return sb.toString();
 	}
 }
