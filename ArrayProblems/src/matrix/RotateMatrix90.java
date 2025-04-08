@@ -1,4 +1,4 @@
-package array;
+package matrix;
 
 /**
  * Given an N * N 2D integer matrix, rotate the matrix by 90 degrees clockwise.
@@ -21,6 +21,7 @@ public class RotateMatrix90 {
 	}
 
 	public static void rotateMatrix(int[][] matrix) {
+		 // Transpose the array
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = i + 1; j < matrix[0].length; j++) {
 				int temp = matrix[i][j];
@@ -28,6 +29,7 @@ public class RotateMatrix90 {
 				matrix[j][i] = temp;
 			}
 		}
+		 // Reverse each row
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length / 2; j++) {
 				int temp = matrix[i][j];

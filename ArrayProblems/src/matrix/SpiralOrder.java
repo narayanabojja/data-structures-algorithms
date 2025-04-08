@@ -1,4 +1,4 @@
-package array;
+package matrix;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,22 +50,32 @@ public class SpiralOrder {
 			right--;
 
 			// Traverse from right to left
+			// if , ensuring that there's still a row to process from right to left.
 			if (top <= bottom) {
 				for (int i = right; i >= left; --i) {
 					ans.add(matrix[bottom][i]);
 				}
 				bottom--;
+				// Finally, after the loop finishes, the variable is decremented (). This
+				// "shrinks" the bottom boundary, so the next loop doesn't process this row
+				// again.
 			}
 
 			// Traverse from bottom to top
+			// This loop runs if , ensuring that there's still a column to process from
+			// bottom to top.
 			if (left <= right) {
 				for (int i = bottom; i >= top; --i) {
 					ans.add(matrix[i][left]);
 				}
 				left++;
+				// Finally, after the loop finishes, the variable is incremented (). This
+				// "shrinks" the left boundary, so the next loop doesn't process this column
+				// again.
 			}
 		}
-
+		// The matrix "shrinks" after each step (via , , , ), reducing the boundaries
+		// until all elements are added to .
 		// Return the ans
 		return ans;
 	}

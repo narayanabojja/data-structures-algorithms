@@ -36,4 +36,31 @@ public class ProductArrayExceptSelf {
 		}
 		return nums;
 	}
+	/**
+	 * 
+	 * ### **Time Complexity**: 1. **Prefix Array Construction** (`for` loop from
+	 * `1` to `n`): - Iterates over the array once → **O(n)**.
+	 * 
+	 * 2. **Suffix Array Construction** (`for` loop from `n - 2` to `0`): - Iterates
+	 * over the array once → **O(n)**.
+	 * 
+	 * 3. **Final Array Computation** (`for` loop from `0` to `n`): - Iterates over
+	 * the array once → **O(n)**.
+	 * 
+	 * Thus, the total time complexity is **O(n)**, since each step iterates over
+	 * the array.
+	 * 
+	 * ---
+	 * 
+	 * ### **Space Complexity**: 1. **Prefix Array (`prefix`)**: - Stores `n`
+	 * elements → **O(n)**.
+	 * 
+	 * 2. **Suffix Array (`suffix`)**: - Stores `n` elements → **O(n)**.
+	 * 
+	 * 3. **Output Array (`nums`)**: - Uses existing array for storing the results,
+	 * no additional space required.
+	 * 
+	 * Thus, the total space complexity is **O(2n) = O(n)**.
+	 *
+	 */
 }
