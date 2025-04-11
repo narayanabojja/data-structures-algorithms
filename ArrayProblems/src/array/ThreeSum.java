@@ -17,7 +17,7 @@ import java.util.List;
 public class ThreeSum {
 
 	public static void main(String[] args) {
-		int[] nums = {2, -2, 0, 3, -3, 5};
+		int[] nums = { 2, -2, 0, 3, -3, 5 };
 		System.out.println(threeSum(nums));
 	}
 
@@ -30,6 +30,8 @@ public class ThreeSum {
 		int n = nums.length;
 
 		// Sort the input array nums
+		// The array is sorted to simplify duplicate handling and allow the two-pointer
+		// technique
 		Arrays.sort(nums);
 
 		// Iterate through the array to find triplets
