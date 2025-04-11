@@ -92,7 +92,6 @@ public class MergeKLists {
 	 * \(O(K)\). - Additionally, the solution uses \(O(1)\) extra space apart from
 	 * the priority queue (for variables like `current`, `dummy`, etc.). - **Total
 	 * space complexity**: \(O(K)\).
-	 * 
-	 * Let me know if you'd like further clarification or optimizations! 😊
+	 *
 	 */
 }
