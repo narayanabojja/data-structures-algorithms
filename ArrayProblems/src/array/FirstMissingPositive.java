@@ -5,8 +5,6 @@ package array;
  * task is to find the smallest positive number missing from the array.
  * https://leetcode.com/problems/first-missing-positive/description/
  * 
- * https://www.geeksforgeeks.org/find-the-smallest-positive-number-missing-from-an-unsorted-array/#better-approach-using-auxiliary-space-on-time-and-on-space
- * 
  */
 public class FirstMissingPositive {
 
