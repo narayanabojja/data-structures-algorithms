@@ -6,7 +6,10 @@ import java.util.HashMap;
  * Given a String, find the length of longest substring without any repeating
  * character.
  * https://takeuforward.org/data-structure/length-of-longest-substring-without-any-repeating-character/
- * Time Complexity: O(n) space complexity: O(1)
+ * Time Complexity: O(n) Space Complexity: O(min(n, m)) `n` is the length of the
+ * string. `m` is the size of the character set (e.g., O(26) for lowercase
+ * English letters). At worst, all characters are unique, storing up to O(n)
+ * space.
  */
 public class LongestSubStringWORepeatingChar {
 

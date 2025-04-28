@@ -9,6 +9,8 @@ package string;
  * Given a string s, return true if it is a palindrome, or false otherwise.
  * https://leetcode.com/problems/valid-palindrome/description/
  * 
+ * #Two Pointers
+ * 
  */
 public class ValidPalindrome {
 

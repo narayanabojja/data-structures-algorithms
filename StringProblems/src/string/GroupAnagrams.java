@@ -11,6 +11,7 @@ import java.util.Map;
  * the answer in any order.
  * https://leetcode.com/problems/group-anagrams/description/
  * 
+ * # Hash Table
  */
 public class GroupAnagrams {
 
