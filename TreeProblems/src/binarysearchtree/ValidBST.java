@@ -3,6 +3,8 @@ package binarysearchtree;
 public class ValidBST {
 
 	/**
+	 * https://leetcode.com/problems/validate-binary-search-tree/
+	 * 
 	 * Approach Define a range for each node, every node must satisfy a range of
 	 * valid values. The root node is initially allowed to have any value within the
 	 * range from negative infinity to positive infinity. Start with the root node
