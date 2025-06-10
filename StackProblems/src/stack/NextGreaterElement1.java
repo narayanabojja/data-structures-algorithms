@@ -21,7 +21,7 @@ public class NextGreaterElement1 {
 
 	public static void main(String[] args) {
 		int[] nums = { 6, 8, 0, 1, 3 };
-		int[] ans = nextLargerElement(nums);// 8 -1 1 3 6
+		int[] ans = nextLargerElement(nums);// 8 -1 1 3 -1
 		for (int i : ans) {
 			System.out.print(i + " ");
 		}

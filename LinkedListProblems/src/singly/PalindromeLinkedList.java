@@ -1,5 +1,10 @@
 package singly;
 
+/**
+ * Given the head of a singly linked list, return true if it is a palindrome or
+ * false otherwise. 
+ * 
+ */
 public class PalindromeLinkedList {
 	/**
 	 * Time Complexity : O(n) Space Complexity: O(1)
