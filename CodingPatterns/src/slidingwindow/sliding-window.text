@@ -1,0 +1,110 @@
+The **Sliding Window** technique is a powerful tool used to reduce the time complexity of algorithms that involve checking a subset (or "window") of elements in a linear data structure like an array or string.
+
+---
+
+## 🔍 **What is Sliding Window?**
+
+A **window** is a range that "slides" across the data structure to maintain a subset of elements. This is typically used when the problem involves:
+
+* Contiguous subarrays or substrings
+* Fixed-length or variable-length windows
+* Optimization (e.g. max, min, longest, shortest)
+
+---
+
+## 🧠 **When to Use Sliding Window (Pattern Recognition)**
+
+👉 Consider Sliding Window when:
+
+* You're dealing with **contiguous** sequences (subarrays or substrings)
+* You're using **nested loops** to explore ranges (can be optimized)
+* The question asks for **max/min/sum/average/count/length** of a subarray or substring
+* The data structure is **linear** (array or string)
+* You can **maintain a dynamic window** with conditions (e.g., valid characters, no duplicates, max length)
+
+---
+
+## 🧰 **Types of Sliding Windows**
+
+### 1. **Fixed-size Window**
+
+* Use two pointers (`left`, `right`)
+* Window size remains constant (e.g., find max sum of subarray of size `k`)
+
+### 2. **Variable-size Window**
+
+* Expand the window by moving `right` pointer
+* Shrink it by moving `left` pointer to maintain some condition (e.g., all unique chars)
+
+---
+
+## 🔡 **Java Template – Fixed Window**
+
+```java
+public int maxSum(int[] nums, int k) {
+    int max = 0, windowSum = 0;
+    for (int i = 0; i < k; i++) {
+        windowSum += nums[i];
+    }
+    max = windowSum;
+
+    for (int i = k; i < nums.length; i++) {
+        windowSum += nums[i] - nums[i - k];  // Slide window
+        max = Math.max(max, windowSum);
+    }
+
+    return max;
+}
+```
+
+---
+
+## 🔄 **Java Template – Variable Window**
+
+```java
+public int lengthOfLongestSubstring(String s) {
+    Set<Character> window = new HashSet<>();
+    int left = 0, maxLen = 0;
+
+    for (int right = 0; right < s.length(); right++) {
+        while (window.contains(s.charAt(right))) {
+            window.remove(s.charAt(left));
+            left++;
+        }
+        window.add(s.charAt(right));
+        maxLen = Math.max(maxLen, right - left + 1);
+    }
+
+    return maxLen;
+}
+```
+
+---
+
+## 🧩 **Tricks to Master Sliding Window**
+
+1. **Two Pointers**: One for start, one for end of window.
+2. **Grow and Shrink**: Grow until a condition breaks, then shrink.
+3. **Use HashMap/Set**: When you need to track characters/frequency.
+4. **Think Greedy/Optimally**: Sometimes window needs to expand to max and then shrink.
+5. **Track best result dynamically**: Use `max`, `min`, or counters to store best answers.
+
+---
+
+## 🔝 **Top 10 Sliding Window Problems**
+
+| Problem                                                     | Type                             | Link                                                                                                |
+| ----------------------------------------------------------- | -------------------------------- | --------------------------------------------------------------------------------------------------- |
+| 1. **Maximum Sum Subarray of Size K**                       | Fixed Window                     | [LeetCode 643](https://leetcode.com/problems/maximum-average-subarray-i/)                           |
+| 2. **Longest Substring Without Repeating Characters**       | Variable Window                  | [LeetCode 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/)         |
+| 3. **Minimum Size Subarray Sum**                            | Variable Window                  | [LeetCode 209](https://leetcode.com/problems/minimum-size-subarray-sum/)                            |
+| 4. **Longest Repeating Character Replacement**              | Variable Window with Frequency   | [LeetCode 424](https://leetcode.com/problems/longest-repeating-character-replacement/)              |
+| 5. **Sliding Window Maximum**                               | Fixed Window + Deque             | [LeetCode 239](https://leetcode.com/problems/sliding-window-maximum/)                               |
+| 6. **Permutation in String**                                | Sliding Window + Frequency Count | [LeetCode 567](https://leetcode.com/problems/permutation-in-string/)                                |
+| 7. **Longest Substring with At Most K Distinct Characters** | Variable Window + HashMap        | [LeetCode 340](https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/) |
+| 8. **Find All Anagrams in a String**                        | Sliding Window + Count Map       | [LeetCode 438](https://leetcode.com/problems/find-all-anagrams-in-a-string/)                        |
+| 9. **Subarrays with K Different Integers**                  | Advanced Sliding Window          | [LeetCode 992](https://leetcode.com/problems/subarrays-with-k-different-integers/)                  |
+| 10. **Maximum Points You Can Obtain from Cards**            | Reverse Sliding Window           | [LeetCode 1423](https://leetcode.com/problems/maximum-points-you-can-obtain-from-cards/)            |
+
+---
+

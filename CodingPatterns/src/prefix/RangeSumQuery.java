@@ -13,6 +13,12 @@ package prefix;
  * indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ... +
  * nums[right]).
  */
+/**
+ * | Component    | Time Complexity | Space Complexity      |
+| ------------ | --------------- | --------------------- |
+| Constructor  | O(n)            | O(1) (modifies input) |
+| `sumRange()` | O(1)            | O(1)                  |
+ */
 public class RangeSumQuery {
 
 	private int[] prefixArray;
