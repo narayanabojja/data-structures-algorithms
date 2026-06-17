@@ -15,13 +15,15 @@ public class BinaryTreeHeight {
 			return 0;
 		}
 		// Recursively find the depth of the left and right subtrees
-		int left = maxDepth(root.left);
-		int right = maxDepth(root.right);
 		// The depth of the tree is 1 current node + the maximum depth of the subtrees
-		return 1 + Math.max(left, right);
+		return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
 	}
 
 	/**
+	 * The minimum depth of a binary tree is the shortest distance from the root
+	 * node to the nearest leaf node.
+	 * 
+	 * 
 	 * Time Complexity: O(n), as it traverses the tree only once. Auxiliary Space:
 	 * O(h), where h is the height of the tree, this space is due to the recursive
 	 * call stack.

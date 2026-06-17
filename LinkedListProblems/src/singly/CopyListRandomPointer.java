@@ -3,6 +3,10 @@ package singly;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * https://leetcode.com/problems/copy-list-with-random-pointer/description/
+ * 
+ */
 public class CopyListRandomPointer {
 
 	Map<SingleLinkedList, SingleLinkedList> mp = new HashMap<>();

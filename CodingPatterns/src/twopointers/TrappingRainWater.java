@@ -14,6 +14,22 @@ public class TrappingRainWater {
 		System.out.println(trw.trap(height));
 	}
 
+	/**
+	 * You’re finding water trapped over every bar in the histogram. Water above
+	 * each bar depends on the tallest bar to the left and tallest to the right.
+	 * Calculate the total amount of water trapped between many bars after raining.
+	 * Sum of water above each bar: water trapped at index i depends on max heights
+	 * to its left and right.
+	 * 
+	 * We track the highest bar seen so far from both ends (leftMax, rightMax)
+	 * 
+	 * Move the pointer on the shorter side
+	 * 
+	 * Water trapped above current bar = (current max boundary - bar height)
+	 * 
+	 * @param height
+	 * @return
+	 */
 	public int trap(int[] height) {
 		int left = 0;
 		int right = height.length - 1;

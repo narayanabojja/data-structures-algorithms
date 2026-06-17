@@ -14,7 +14,7 @@ package binarytree;
  */
 
 public class MaxPathSum {
-	BinaryTreeNode root;
+	private BinaryTreeNode root;
 	private int maxSum;
 
 	/**
@@ -43,6 +43,8 @@ public class MaxPathSum {
 		maxSum = Math.max(maxSum, node.key + leftMax + rightMax);
 
 		// Return max path sum ending at this node
+		// When returning to the parent, you can only choose one direction (left or
+		// right), because a path in the “max path sum” problem cannot branch upward.
 		return node.key + Math.max(leftMax, rightMax);
 	}
 

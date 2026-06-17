@@ -22,7 +22,8 @@ public class RomanToInt {
 		int ans = 0;
 		for (int i = 0; i < s.length(); i++) {
 			if (i < s.length() - 1 && (map.get(s.charAt(i)) < map.get(s.charAt(i + 1)))) {
-				ans -= map.get(s.charAt(i));
+				ans += (map.get(s.charAt(i + 1)) - map.get(s.charAt(i)));
+				i++;
 			} else {
 				ans += map.get(s.charAt(i));
 			}

@@ -4,6 +4,24 @@ package binarysearch;
  * A peak element is an element that is strictly greater than its neighbors.
  * 
  * Time complexity: O(log n) Space complexity: O(1)
+ * 
+ * Normally, you’d check each element one by one (O(n) time). But with binary
+ * search, we can find a peak faster (O(log n)).
+ * 
+ * Here’s the idea:
+ * 
+ * Look at the middle element (mid).
+ * 
+ * Compare it with the next element (mid + 1).
+ * 
+ * Case 1: If nums[mid] < nums[mid+1] 👉 That means the right side is going up.
+ * Since the array is rising, there must be a peak on the right. (Think: if
+ * you’re climbing uphill, eventually you must come down → peak ahead.)
+ * 
+ * Case 2: If nums[mid] >= nums[mid+1] 👉 That means the slope is going down.
+ * So, the peak is on the left side or at mid.
+ * 
+ * Keep shrinking the search space until low == high. That index will be a peak.
  */
 public class PeakElement {
 

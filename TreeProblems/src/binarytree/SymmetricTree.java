@@ -1,9 +1,16 @@
 package binarytree;
 
+/**
+ * Given the root of a binary tree, check whether it is a mirror of itself
+ * (i.e., symmetric around its center).
+ * 
+ */
 public class SymmetricTree {
 	BinaryTreeNode root;
 
 	/**
+	 * Every node in the tree gets compared exactly once with its mirror
+	 * counterpart. 
 	 * The time complexity : O(n) space complexity, it's O(h), where h is the height
 	 * of the binary tree.
 	 */

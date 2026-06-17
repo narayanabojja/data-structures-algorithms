@@ -18,6 +18,16 @@ public class ContainerWithMostWater {
 		System.out.println(cw.maxArea(height));
 	}
 
+	/**
+	 * he amount of water a container can store is calculated as:
+	 * 
+	 * Area = width × height Area=width×height
+	 * 
+	 * Time complexity = O(n) Space complexity = O(1)
+	 * 
+	 * @param height
+	 * @return
+	 */
 	public int maxArea(int[] height) {
 		int left = 0;
 		int right = height.length - 1;

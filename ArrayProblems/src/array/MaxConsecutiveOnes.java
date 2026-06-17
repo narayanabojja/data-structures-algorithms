@@ -8,6 +8,7 @@ package array;
  * through the array once, where n is the length of the input array 'nums'.
  * Space Complexity:The space complexity is O(1) because only a constant amount
  * of extra space is used, regardless of the input size.
+ * 
  */
 public class MaxConsecutiveOnes {
 

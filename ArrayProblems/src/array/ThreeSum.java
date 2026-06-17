@@ -21,10 +21,10 @@ public class ThreeSum {
 		System.out.println(threeSum(nums));
 	}
 
-	// Function to find triplets having sum equals to target
+	// Function to find triplets having sum equals to zero
 	public static List<List<Integer>> threeSum(int[] nums) {
 
-		// List to store the triplets that sum up to target
+		// List to store the triplets that sum up to zero
 		List<List<Integer>> ans = new ArrayList<>();
 
 		int n = nums.length;

@@ -1,4 +1,4 @@
-package string;
+package slidingwindow;
 
 import java.util.HashMap;
 
@@ -76,3 +76,4 @@ public class LongestSubStringWORepeatingChar {
 	 * 
 	 */
 }
+
